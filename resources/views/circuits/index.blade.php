@@ -14,43 +14,42 @@
 
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
-
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-4 row justify-content-around">
                     <!-- Total Circuits Card -->
-                    <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer" onclick="window.location.href='{{ route('circuits.list', ['status' => 'all']) }}'">
+                    <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer" onclick="window.location.href='{{ route('circuits.index', ['status' => 'all']) }}'">
                         <h3 class="text-lg font-medium text-gray-900">Total Circuits</h3>
                         <p class="text-2xl font-bold text-gray-800">{{ $totalCircuits }}</p>
                     </div>
 
                     <!-- Active Circuits Card -->
-                    <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer" onclick="window.location.href='{{ route('circuits.list', ['status' => 1]) }}'">
+                    <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer" onclick="window.location.href='{{ route('circuits.index', ['status' => 1]) }}'">
                         <h3 class="text-lg font-medium text-gray-900">Active Circuits</h3>
                         <p class="text-2xl font-bold text-gray-800">{{ $activeCircuits }}</p>
                     </div>
 
                     <!-- Inactive Circuits Card -->
-                    <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer" onclick="window.location.href='{{ route('circuits.list', ['status' => 2]) }}'">
+                    <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer" onclick="window.location.href='{{ route('circuits.index', ['status' => 2]) }}'">
                         <h3 class="text-lg font-medium text-gray-900">Inactive Circuits</h3>
                         <p class="text-2xl font-bold text-gray-800">{{ $inactiveCircuits }}</p>
                     </div>
 
                     <!-- Faulty Circuits Card -->
-                    <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer" onclick="window.location.href='{{ route('circuits.list', ['status' => 5]) }}'">
+                    <div class="bg-white p-4 rounded-lg shadow-md cursor-pointer" onclick="window.location.href='{{ route('circuits.index', ['status' => 5]) }}'">
                         <h3 class="text-lg font-medium text-gray-900">Faulty Circuits</h3>
                         <p class="text-2xl font-bold text-gray-800">{{ $faultyCircuits }}</p>
                     </div>
                 </div>
 
                 <!-- Search and Filter Form -->
-                <form method="GET" action="{{ route('circuits.list') }}" class="mb-4">
-                    <div class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
+                <form method="GET" action="{{ route('circuits.index') }}" class="mb-4">
+                    <div class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0 items-center">
                         <!-- ADD NEW CIRCUIT -->
                         <a href="{{ route('circuits.create') }}"
                            style="color: #1d4ed8; font-size: 1.875rem; margin-top: 0.25rem; margin-right: 0.3rem;"
                            class="hover:text-blue-950">
                             <i class="fas fa-plus-circle"></i>
                         </a>
-                        <input type="text" name="search" placeholder="Search by Circuit Number or Speed" value="{{ request('search') }}" class="border rounded-lg px-4 py-2 w-full md:w-1/3">
+                        <input type="text" name="search" placeholder="Search by Circuit Number or Speed" value="{{ request('search') }}" class="border rounded-lg px-4 py-2 w-full md:w-1/4">
 
                         <!-- Filters -->
                         <select name="service_provider_id" class="border rounded-lg px-4 py-2 w-full md:w-1/4">
@@ -88,6 +87,7 @@
                                 </option>
                             @endforeach
                         </select>
+
                         <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded-lg">Filter</button>
                     </div>
                 </form>

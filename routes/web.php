@@ -29,7 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/circuits', [CircuitsController::class, 'index'])->name('circuits.index');
-    Route::get('/circuits/list', [CircuitsController::class, 'list'])->name('circuits.list');
+    Route::get('/circuits/index', [CircuitsController::class, 'index'])->name('circuits.index');
     Route::get('/circuits/create', [CircuitsController::class, 'create'])->name('circuits.create');
     Route::post('/circuits', [CircuitsController::class, 'store'])->name('circuits.store');
     Route::get('/circuits/{id}/edit', [CircuitsController::class, 'edit'])->name('circuits.edit');
@@ -42,3 +42,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::resource('events', EventsController::class);
+// Route to mark an event as completed
+Route::patch('events/{id}/complete', [EventsController::class, 'complete'])->name('events.complete');
+
+Route::put('events/{event}/complete', [EventsController::class, 'complete'])->name('events.complete');

@@ -1,5 +1,5 @@
 <!-- resources/views/circuits/create.blade.php -->
-<x-circuit-layout>
+<x-app-layout>
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg max-w-lg mx-auto">
             <div class="p-4 bg-white border-b border-gray-200">
@@ -104,4 +104,4 @@
             </div>
         </div>
     </div>
-</x-circuit-layout>
+</x-app-layout>
