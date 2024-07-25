@@ -35,6 +35,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/circuits/{id}/edit', [CircuitsController::class, 'edit'])->name('circuits.edit');
     Route::put('/circuits/{id}', [CircuitsController::class, 'update'])->name('circuits.update');
     Route::delete('/circuits/{id}', [CircuitsController::class, 'destroy'])->name('circuits.destroy');
+    Route::get('circuits/{id}', [CircuitsController::class, 'show'])->name('circuits.show');
+    Route::post('circuits/{id}/update-status', [CircuitsController::class, 'updateStatus'])->name('circuits.updateStatus');
+
 
 });
 

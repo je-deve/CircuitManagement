@@ -8,7 +8,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                <a href="{{ route('events.create') }}" class="btn btn-primary mb-3">Add New Event</a>
+                <!-- ADD NEW events -->
+
+                <br>
+                <hr/>
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead>
                     <tr>
@@ -17,6 +20,7 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Report Detail</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Circuit Number</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Report Type</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User Name</th> <!-- New column for user name -->
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                     </tr>
                     </thead>
@@ -28,8 +32,11 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $event->report_detail }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $event->circuit->circuit_number }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $event->reportType->report_type }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{ $event->user ? $event->user->name : 'No user assigned' }}</td> <!-- Display user name or fallback message -->
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <!-- Add actions like Edit/Delete if needed -->
+                                <a href="{{ route('events.edit', $event->id) }}" class="text-gray-800 hover:text-gray-500 text-2xl">
+                                    <i class="fas fa-edit"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach
