@@ -49,7 +49,7 @@ class EventsController extends Controller
                 });
             })
             ->orderBy('completion_date', 'asc') // Ensure incomplete events appear first
-            ->paginate(10);
+            ->paginate(30);
 
         $serviceProviders = ServiceProvider::all();
         $entityNames = EntityName::all();

@@ -50,7 +50,7 @@ class CircuitsController extends Controller
             }
         }
 
-        $circuits = $query->paginate(10);
+        $circuits = $query->paginate(30);
 
         $totalCircuits = Circuit::count();
         $activeCircuits = Circuit::where('circuit_status_id', 1)->count();
